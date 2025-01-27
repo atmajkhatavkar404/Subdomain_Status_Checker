@@ -26,5 +26,5 @@ Ensure Python 3.x is installed on your system. You can download Python from pyth
    
     python subdomain_checker.py
 
-  3)View Results
+  3) View Results
 The script outputs active and inactive subdomains directly in the terminal. Active subdomains are also stored in the active_subdomains variable within the script.
