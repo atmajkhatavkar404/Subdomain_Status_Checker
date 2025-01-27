@@ -16,8 +16,7 @@ Ensure Python 3.x is installed on your system. You can download Python from pyth
     git clone https://github.com/atmajkhatavkar404/subdomain-status-checker.git
     cd subdomain-status-checker
 
-
-2)Install the required Python library
+  2) Install the required Python library
 
     pip install requests
 
