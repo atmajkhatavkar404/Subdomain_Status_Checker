@@ -6,7 +6,7 @@ def check_subdomain(subdomain):
     Check if a subdomain is active.
     """
     try:
-        response = requests.get(f"http://{subdomain}", timeout=5)
+        response = requests.get(f"http://{subdomain}", timeout=5)  # Using http as default
         if response.status_code == 200:
             return subdomain, True
         return subdomain, False
@@ -41,10 +41,13 @@ def main():
         print("Checking subdomains...")
         active_subdomains = check_subdomains(subdomains)
 
-        with open(output_file, 'w') as file:
-            file.writelines(f"{subdomain}\n" for subdomain in active_subdomains)
+        # Convert active subdomains to full URLs
+        active_urls = [f"http://{subdomain}" for subdomain in active_subdomains]  # You can use https if needed
 
-        print(f"Active subdomains saved to {output_file}.")
+        with open(output_file, 'w') as file:
+            file.writelines(f"{url}\n" for url in active_urls)
+
+        print(f"Active subdomains saved as URLs to {output_file}.")
     except FileNotFoundError:
         print("Error: Input file not found.")
     except Exception as e:
